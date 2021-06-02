@@ -1,0 +1,29 @@
+name = "service"
+current_env = "dev"
+location = "cn"
+
+[app]
+    aesKey = ""
+
+[log]
+    level=-1
+    development=true
+    outputPaths=["stderr","/tmp/api.log"]
+
+[redis]
+    [redis.local]
+        addr = ":6379"
+        password = ""
+        db = 0
+        maxRetries = 64
+        poolSize=10
+        minIdleConns=5
+        dialTimeout = 300
+        readTimeout = 500
+        writeTimeout = 500
+
+[db]
+    [db.local]
+        dsn = "root:123456@tcp(127.0.0.1:3306)/withdraw?timeout=10s&readTimeout=10s&writeTimeout=10s&parseTime=true&loc=Local&charset=utf8mb4"
+        active = 50
+        idle = 25
